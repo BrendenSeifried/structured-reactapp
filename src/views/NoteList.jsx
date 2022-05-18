@@ -1,11 +1,8 @@
-// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useTestFetch from '../hooks/NoteFetchHook';
+import { useTestFetch } from '../hooks/FetchList/Detail/NoteFetchHook';
 
 export default function ShowNotes() {
   const [note, loading] = useTestFetch();
-
-  // const { test, loading, fetchNotes } = useTestFetch();
 
   if (loading) return <h1>Loading</h1>;
 
