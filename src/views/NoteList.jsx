@@ -11,6 +11,9 @@ export default function ShowNotes() {
 
   return (
     <>
+      <Link to="/new">
+        <button>Create Note</button>
+      </Link>
       <div>
         {note.map((item) => (
           <div key={item.id}>
