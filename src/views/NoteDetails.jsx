@@ -1,5 +1,4 @@
 import React from 'react';
-import AddNote from '../components/AddNote';
 import UserHook from '../hooks/UserHook';
 
 export default function NoteDetails() {
@@ -15,8 +14,6 @@ export default function NoteDetails() {
         <p>{note.created_at}</p>
         <p>{note.creator}</p>
       </div>
-
-    
     </>
   );
 }
