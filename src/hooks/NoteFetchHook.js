@@ -18,3 +18,25 @@ function useTestFetch() {
 }
 
 export default useTestFetch;
+
+// function useTestFetch() {
+//     const [X, setX] = useState([]);
+//     const [loading, setLoading] = useState(true);
+
+//     useEffect(() => {
+//       const renderNotes = async () => {
+//         const data = await Y();
+//         setX(data);
+//         setLoading(false);
+//       };
+//       renderNotes();
+//     }, []);
+
+//     return { X, loading, Y };
+//   }
+
+//   export default useTestFetch;
+//  function dynamicTest() => {
+//     const [X, Y] = useState('')
+//     return [X, Y]
+// };

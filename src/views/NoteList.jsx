@@ -4,7 +4,8 @@ import useTestFetch from '../hooks/NoteFetchHook';
 
 export default function ShowNotes() {
   const { note, loading } = useTestFetch();
-  // const {test, loading} = useTestFetch();
+
+  // const { test, loading, fetchNotes } = useTestFetch();
 
   if (loading) return <h1>Loading</h1>;
 
