@@ -9,6 +9,9 @@ export default function NoteDetails() {
   return (
     <div>
       <h1>{note.title}</h1>
+      <h3>{note.note}</h3>
+      <p>{note.created_at}</p>
+      <p>{note.creator}</p>
     </div>
   );
 }
