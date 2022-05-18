@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchNotes } from '../services/FetchNotes';
 
 export default function ShowNotes() {
@@ -21,7 +22,9 @@ export default function ShowNotes() {
       <div>
         {note.map((item) => (
           <div key={item.id}>
-            <h1>{item.note}</h1>
+            <Link to={`/${item.id}`}>
+              <h1>{item.note}</h1>
+            </Link>
           </div>
         ))}
       </div>

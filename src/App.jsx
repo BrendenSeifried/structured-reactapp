@@ -10,9 +10,9 @@ export default function App() {
     <BrowserRouter>
       {/* <Header /> */}
       <Switch>
-        {/* <Route path="/auth">
-          <Auth />
-        </Route> */}
+        {/* <Route path="/auth"> */}
+        {/* <Auth /> */}
+        {/* </Route> */}
         {/* <PrivateRoute path="/">
           <NoteList />
         </PrivateRoute> */}
