@@ -12,8 +12,8 @@ export default function NoteEditHook() {
   useEffect(() => {
     const grabNote = async () => {
       const data = await fetchOneNote(id);
-      setNote(data.note);
-      setTitle(data.title);
+      setNote(data);
+      setTitle(data);
     };
     grabNote();
   }, [id]);
