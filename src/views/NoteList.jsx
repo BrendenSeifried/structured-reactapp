@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useTestFetch from '../hooks/NoteFetchHook';
 
 export default function ShowNotes() {
-  const { note, loading } = useTestFetch();
+  const [note, loading] = useTestFetch();
 
   // const { test, loading, fetchNotes } = useTestFetch();
 

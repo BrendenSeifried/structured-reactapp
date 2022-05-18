@@ -1,42 +1,39 @@
 import { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom';
 import { fetchNotes } from '../services/FetchNotes';
 
 function useTestFetch() {
-  const [note, setNote] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const renderNotes = async () => {
       const data = await fetchNotes();
-      setNote(data);
+      setData(data);
       setLoading(false);
     };
     renderNotes();
   }, []);
 
-  return { note, loading };
+  return [data, loading];
 }
 
 export default useTestFetch;
 
 // function useTestFetch() {
-//     const [X, setX] = useState([]);
+//     const [value, setValue] = useState([]);
 //     const [loading, setLoading] = useState(true);
-
+//     const {id } = useParams();
 //     useEffect(() => {
 //       const renderNotes = async () => {
-//         const data = await Y();
-//         setX(data);
+//         const data = await fetch(id);
+//         setValue(data);
 //         setLoading(false);
 //       };
 //       renderNotes();
 //     }, []);
 
-//     return { X, loading, Y };
+//     return [ value, loading, fetch ];
 //   }
 
 //   export default useTestFetch;
-//  function dynamicTest() => {
-//     const [X, Y] = useState('')
-//     return [X, Y]
-// };
