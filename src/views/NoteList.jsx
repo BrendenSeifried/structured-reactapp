@@ -1,19 +1,10 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchNotes } from '../services/FetchNotes';
+import useTestFetch from '../hooks/NoteFetchHook';
 
 export default function ShowNotes() {
-  const [note, setNote] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const renderNotes = async () => {
-      const data = await fetchNotes();
-      setNote(data);
-      setLoading(false);
-    };
-    renderNotes();
-  }, []);
+  const { note, loading } = useTestFetch();
+  // const {test, loading} = useTestFetch();
 
   if (loading) return <h1>Loading</h1>;
 
