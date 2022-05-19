@@ -1,14 +1,12 @@
 import { useContext } from 'react';
 import { UserContext } from '../context/UserContext';
 
-
-export default function useAuth() {
+export function useAuth() {
   const context = useContext(UserContext);
 
   if (context === undefined) {
-    throw new Error('UserContext must be used within a UserProvide context');
-  } 
+    throw new Error('useauth isnt inside a Provider!');
+  }
 
   return context;
-
 }
