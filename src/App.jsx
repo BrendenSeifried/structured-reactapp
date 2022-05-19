@@ -5,6 +5,7 @@ import NewNotePage from './views/NewNotePage';
 import { UserProvider } from './context/UserContext';
 import { PrivateRoute } from './components/PrivateRoute.jsx/PrivateRoute';
 import Header from './components/Header';
+import Login from './views/Auth/Login';
 
 export default function App() {
   return (
@@ -12,6 +13,9 @@ export default function App() {
       <BrowserRouter>
         <Header />
         <Switch>
+          <PrivateRoute path="/auth">
+            <Login />
+          </PrivateRoute>
           <Route path="/new">
             <NewNotePage />
           </Route>
