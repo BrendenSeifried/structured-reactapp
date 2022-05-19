@@ -5,27 +5,30 @@ import NewNotePage from './views/NewNotePage';
 import { UserProvider } from './context/UserContext';
 import { PrivateRoute } from './components/PrivateRoute.jsx/PrivateRoute';
 import Header from './components/Header';
-import Auth from './views/Auth/Auth';
+import Login from './views/Auth/Login';
+import { AuthProvider } from './context/AuthContext';
 
 export default function App() {
   return (
     <BrowserRouter>
       <UserProvider>
-        <Header />
-        <Switch>
-          <Route path="/auth">
-            <Auth />
-          </Route>
-          <PrivateRoute path="/new">
-            <NewNotePage />
-          </PrivateRoute>
-          <PrivateRoute path="/:id">
-            <NoteDetails />
-          </PrivateRoute>
-          <Route path="/">
-            <NoteList />
-          </Route>
-        </Switch>
+        <AuthProvider>
+          <Header />
+          <Switch>
+            <Route path="/auth">
+              <Login />
+            </Route>
+            <PrivateRoute path="/new">
+              <NewNotePage />
+            </PrivateRoute>
+            <PrivateRoute path="/:id">
+              <NoteDetails />
+            </PrivateRoute>
+            <Route path="/">
+              <NoteList />
+            </Route>
+          </Switch>
+        </AuthProvider>
       </UserProvider>
     </BrowserRouter>
   );

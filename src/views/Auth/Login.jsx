@@ -1,18 +1,22 @@
-import { useState } from 'react';
-// import { signInUser, signUpUser } from '../../services/user';
 import { useHistory } from 'react-router-dom';
 import style from './Login.css';
 import { useUserContext } from '../../context/UserContext';
 import { signInUser, signUpUser } from '../../services/fetchauth';
-
+import { useAuthContext } from '../../context/AuthContext';
 
 export default function Login() {
   const history = useHistory();
   const { setCurrentUser } = useUserContext();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [type, setType] = useState('sign-in');
-  const [error, setError] = useState('');
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    type,
+    setType,
+    error,
+    setError,
+  } = useAuthContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,7 +55,8 @@ export default function Login() {
           <label>
             Email:
             <input
-              type="email" placeholder="user email"
+              type="email"
+              placeholder="user email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -59,7 +64,8 @@ export default function Login() {
           <label>
             Password:
             <input
-              type="password" placeholder="password"
+              type="password"
+              placeholder="password"
               value={password}
               autoComplete="on"
               onChange={(e) => setPassword(e.target.value)}

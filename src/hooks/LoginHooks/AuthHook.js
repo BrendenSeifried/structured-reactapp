@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../hooks/LoginHooks/useAuth';
 import { signInUser, signUpUser } from '../../services/fetchauth';
 
-
 export default function AuthHook() {
   const { setCurrentUser } = useAuth();
   const [email, setEmail] = useState('');
@@ -27,8 +26,15 @@ export default function AuthHook() {
     } catch (error) {
       setError(error.message);
     }
-    return [setCheck, check, error, handleSubmit, email, setEmail, password, setPassword];
-
+    return {
+      setCheck,
+      check,
+      error,
+      handleSubmit,
+      email,
+      setEmail,
+      password,
+      setPassword,
+    ];
   };
 }
-  

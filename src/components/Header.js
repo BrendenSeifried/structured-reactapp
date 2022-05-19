@@ -1,7 +1,5 @@
-// import React from 'react';
 import { useUserContext } from '../context/UserContext';
 import { signOutUser } from '../services/fetchauth';
-// import { logout } from '../services/fetchauth';
 
 export default function Header() {
   const { currentUser } = useUserContext();
@@ -10,6 +8,7 @@ export default function Header() {
     await signOutUser();
     window.location.reload();
   };
+
   return (
     <>
       {currentUser.email && (
