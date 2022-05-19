@@ -1,34 +1,8 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
-import { signInUser, signUpUser } from '../../services/fetchauth';
-// import { signInUser, signUpUser } from '../../services/fetch';
 import style from './Auth.css';
-
+import AuthHook from '../../hooks/LoginHooks/AuthHook';
 export default function Authorize() {
-  const { setCurrentUser } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const history = useHistory();
-
-  const [check, setCheck] = useState('sign-in');
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (check === 'sign-in') {
-        const data = await signInUser({ email, password });
-        setCurrentUser(data);
-        history.push('/');
-      } else {
-        const data = await signUpUser({ email, password });
-        setCurrentUser(data);
-        history.push('/');
-      }
-    } catch (error) {
-      setError(error.message);
-    }
-  };
+const [setCheck, check, error, handleSubmit, email, setEmail, password, setPassword] = AuthHook();
 
   return (
     <>

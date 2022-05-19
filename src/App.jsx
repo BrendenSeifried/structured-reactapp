@@ -16,10 +16,9 @@ export default function App() {
           <Route path="/auth">
             <Auth />
           </Route>
-
-          <Route path="/new">
+          <PrivateRoute path="/new">
             <NewNotePage />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/:id">
             <NoteDetails />
           </PrivateRoute>
