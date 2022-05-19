@@ -5,13 +5,18 @@ import NewNotePage from './views/NewNotePage';
 import { UserProvider } from './context/UserContext';
 import { PrivateRoute } from './components/PrivateRoute.jsx/PrivateRoute';
 import Header from './components/Header';
+import Auth from './views/Auth/Auth';
 
 export default function App() {
   return (
-    <UserProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <UserProvider>
         <Header />
         <Switch>
+          <Route path="/auth">
+            <Auth />
+          </Route>
+
           <Route path="/new">
             <NewNotePage />
           </Route>
@@ -22,7 +27,7 @@ export default function App() {
             <NoteList />
           </Route>
         </Switch>
-      </BrowserRouter>
-    </UserProvider>
+      </UserProvider>
+    </BrowserRouter>
   );
 }

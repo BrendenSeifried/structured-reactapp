@@ -1,12 +1,13 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { getUser } from '../services/fetchauth';
+// import { getUser } from '../services/fetch';
 
-const UserContext = createContext(); 
+export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const user = getUser();
   const [currentUser, setCurrentUser] = useState(user || { email: null });
-  
+
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
       {children}
@@ -14,12 +15,12 @@ const UserProvider = ({ children }) => {
   );
 };
 
-const useUserContext = () => { 
-  const context = useContext(UserContext);
-  if (context === undefined) {
-    throw new error('Error need to use UserContext');
+const useUserContext = () => {
+  const data = useContext(UserContext);
+  if (data === undefined) {
+    throw new Error('somethings up with the context.');
   }
-
-  return context;
+  return data;
 };
-export { useUserContext, UserProvider, UserContext };
+
+export { UserProvider, useUserContext };

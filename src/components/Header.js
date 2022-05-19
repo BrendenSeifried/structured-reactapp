@@ -1,12 +1,13 @@
 // import React from 'react';
 import { useUserContext } from '../context/UserContext';
-import { logout } from '../services/fetchauth';
+import { signOutUser } from '../services/fetchauth';
+// import { logout } from '../services/fetchauth';
 
 export default function Header() {
   const { currentUser } = useUserContext();
 
-  const out  = async () => {
-    await logout();
+  const out = async () => {
+    await signOutUser();
     window.location.reload();
   };
   return (
