@@ -1,39 +1,50 @@
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import style from './Login.css';
-import { useUserContext } from '../../context/UserContext';
-import { signInUser, signUpUser } from '../../services/fetchauth';
-import { useAuthContext } from '../../context/AuthContext';
+// import { useUserContext } from '../../context/UserContext';
+// import { signInUser, signUpUser } from '../../services/fetchauth';
+// import { useAuthContext } from '../../context/AuthContext';
+import AuthHook from '../../hooks/LoginHooks/AuthHook';
 
 export default function Login() {
-  const history = useHistory();
-  const { setCurrentUser } = useUserContext();
-  const {
+  const [
+    setType,
+    type,
+    error,
+    handleSubmit,
     email,
     setEmail,
     password,
     setPassword,
-    type,
-    setType,
-    error,
-    setError,
-  } = useAuthContext();
+  ] = AuthHook();
+  // // const history = useHistory();
+  // // const { setCurrentUser } = useUserContext();
+  // const {
+  //   email,
+  //   setEmail,
+  //   password,
+  //   setPassword,
+  //   type,
+  //   setType,
+  //   error,
+  //   setError,
+  // } = useAuthContext();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (type === 'sign-in') {
-        const data = await signInUser({ email, password });
-        setCurrentUser(data);
-        history.push('/');
-      } else {
-        const data = await signUpUser({ email, password });
-        setCurrentUser(data);
-        history.push('/');
-      }
-    } catch (error) {
-      setError(e.message);
-    }
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     if (type === 'sign-in') {
+  //       const data = await signInUser({ email, password });
+  //       setCurrentUser(data);
+  //       history.push('/');
+  //     } else {
+  //       const data = await signUpUser({ email, password });
+  //       setCurrentUser(data);
+  //       history.push('/');
+  //     }
+  //   } catch (error) {
+  //     setError(e.message);
+  //   }
+  // };
 
   return (
     <div className="button">

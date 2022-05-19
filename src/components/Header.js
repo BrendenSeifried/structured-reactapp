@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useUserContext } from '../context/UserContext';
 import { signOutUser } from '../services/fetchauth';
 
@@ -17,6 +18,14 @@ export default function Header() {
           <h1>Welcome: ({currentUser.email})</h1>
         </div>
       )}
+      <div>
+      <Link to="/">
+        <button>Home</button>
+      </Link>
+        <Link to="/new">
+        <button>Create Note</button>
+      </Link>
+        </div>
     </>
   );
 }

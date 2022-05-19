@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useAuthContext } from '../../context/AuthContext';
+import { useUserContext } from '../../context/UserContext';
 import { useAuth } from '../../hooks/LoginHooks/useAuth';
 import { signInUser, signUpUser } from '../../services/fetchauth';
 
 export default function AuthHook() {
-  const { setCurrentUser } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const history = useHistory();
+ const history = useHistory();
+  const { setCurrentUser } = useUserContext();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    type,
+    setType,
+    error,
+    setError,
+  } = useAuthContext()
 
-  const [check, setCheck] = useState('sign-in');
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (check === 'sign-in') {
+      if (type === 'sign-in') {
         const data = await signInUser({ email, password });
         setCurrentUser(data);
         history.push('/');
@@ -26,9 +34,9 @@ export default function AuthHook() {
     } catch (error) {
       setError(error.message);
     }
-    return {
-      setCheck,
-      check,
+    return [
+      setType,
+      type,
       error,
       handleSubmit,
       email,
