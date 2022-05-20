@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteEditHook from '../hooks/EditHook.js/NoteEditHook';
 
-export default function AddNote() {
+export default function EditNote() {
   const { note, setNote, submitChange, title, setTitle } = NoteEditHook();
 
   return (
