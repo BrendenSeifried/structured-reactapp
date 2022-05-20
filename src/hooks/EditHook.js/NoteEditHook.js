@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { editNote, fetchOneNote } from '../../services/FetchNotes';
+import { deleteNote, editNote, fetchOneNote } from '../../services/FetchNotes';
 
 export default function NoteEditHook() {
   const [note, setNote] = useState('');
@@ -21,10 +21,16 @@ export default function NoteEditHook() {
   const submitChange = async () => {
     try {
       await editNote({ id, note, title });
-      history.push(`/${id}`);
+      window.location.reload();
     } catch {
       alert('Oh no! Something went wrong.');
     }
   };
-  return { id, note, title, setTitle, setNote, submitChange };
+
+  const remove = async () => {
+    await deleteNote(id);
+    history.push(`/`);
+  };
+
+  return { id, note, title, setTitle, setNote, submitChange, remove };
 }
