@@ -27,10 +27,13 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useNoteContext } from '../../context/NoteContext';
 import { makeNote } from '../../services/FetchNotes';
+import { UserHook } from '../FetchList/Detail/NoteFetchHook';
 // import { useNoteContext } from '../context/NoteContext';
 // import { makeNote } from '../services/FetchNotes';
 
 export default function UserAddNote() {
+  const [note] = UserHook();
+
   const [data, setData] = useState('');
   const [title, setTitle] = useState('');
   const history = useHistory();
@@ -38,11 +41,12 @@ export default function UserAddNote() {
 
   const submitClone = async () => {
     try {
-      const data = await makeNote({ note, title });
+      const info = await makeNote({ note, title });
       // Data(note);
       dispatch({ type: 'CLONE', payload: data });
-      // setNote(note.note);
-      // setNote(note.title);
+
+      // setData(info.note);
+      // setTitle(info.title);
 
       alert('Cloning complete.');
       history.push('/');

@@ -5,10 +5,10 @@ import UserAddNote from '../../hooks/UserAddNote';
 // import NoteEditHook from '../hooks/EditHook.js/NoteEditHook';
 
 export default function CloneCom() {
-  const { data, submitClone, setTitle, setData } = Clone();
+  const { data, submitClone, setTitle, setData, title } = Clone();
   const [note] = UserHook();
-  const { submitNote } = UserAddNote();
-  console.log(note);
+  //   const { submitNote } = UserAddNote();
+  //   console.log(note);
 
   return (
     <div>
@@ -31,7 +31,7 @@ export default function CloneCom() {
         />
       </label>
 
-      <button onClick={submitNote}>Add</button>
+      <button onClick={submitClone}>Add</button>
       {/* <button onClick={remove}>Delete</button> */}
     </div>
   );
