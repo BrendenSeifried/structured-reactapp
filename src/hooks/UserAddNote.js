@@ -19,3 +19,4 @@ export default function UserAddNote() {
   };
   return { note, setNote, submitNote, title, setTitle };
 }
+
