@@ -11,7 +11,7 @@ export default function AddNote() {
         Title:
         <input
           type="text"
-          value={title}
+          value={note.title}
           onChange={(e) => setTitle(e.target.value)}
         />
       </label>

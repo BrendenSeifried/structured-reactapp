@@ -20,6 +20,7 @@ export async function makeNote(note) {
 }
 
 export async function editNote(change) {
+  console.log(change);
   const resp = await client
     .from('Reminders')
     .update(change)

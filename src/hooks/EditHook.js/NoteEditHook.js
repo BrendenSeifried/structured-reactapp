@@ -20,7 +20,7 @@ export default function NoteEditHook() {
 
   const submitChange = async () => {
     try {
-      await editNote(id, note, title);
+      await editNote({ id, note, title });
       history.push(`/${id}`);
     } catch {
       alert('Oh no! Something went wrong.');
