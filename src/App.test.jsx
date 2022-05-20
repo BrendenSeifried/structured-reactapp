@@ -7,5 +7,3 @@ describe('example test', () => {
     screen.debug();
   });
 });
-
-//testing
