@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
-import { fetchNotes, fetchOneNote } from '../../../services/FetchNotes';
+import {
+  fetchNotes,
+  fetchOneNote,
+  makeNote,
+} from '../../../services/FetchNotes';
 import { useParams } from 'react-router-dom';
 import { useNoteContext } from '../../../context/NoteContext';
 
@@ -20,8 +24,10 @@ export function useTestFetch() {
   return [allNotes, loading, dispatch];
 }
 
-export function UserHook() {
-  const { id } = useParams();
+export function UserHook(id) {
+  // const { id } = useParams();
+  const { allNotes, dispatch } = useNoteContext();
+
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState('');
   // const [title, setTitle] = useState('');
@@ -36,8 +42,12 @@ export function UserHook() {
 
     grabOneNote();
   }, [id]);
+  const clone = async (data) => {
+    const info = await makeNote(data);
+    dispatch({ type: 'CLONE', payload: info });
+  };
 
-  return [note, loading, id];
+  return { note, loading, clone };
 }
 
 // export default { useTestFetch, UserHook };

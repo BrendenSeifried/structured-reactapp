@@ -1,24 +1,27 @@
-import React from 'react';
-import Clone from '../../hooks/Clone/Clone';
-import { UserHook } from '../../hooks/FetchList/Detail/NoteFetchHook';
-import UserAddNote from '../../hooks/UserAddNote';
-// import NoteEditHook from '../hooks/EditHook.js/NoteEditHook';
+import React, { useState } from 'react';
 
-export default function CloneCom() {
-  const { data, submitClone, setTitle, setData, title } = Clone();
-  const [note] = UserHook();
-  //   const { submitNote } = UserAddNote();
-  //   console.log(note);
+export default function CloneCom({ note, handleClone }) {
+  //   const { submitClone, setTitle, setData, title } = Clone();
+  const [title, setTitle] = useState(note.title);
+  const [data, setData] = useState(note.note);
 
+  // const { submitNote } = UserAddNote();
+  // console.log(note);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // await submitClone(note);
+    // history.push('/');
+    handleClone({ title, note: data });
+  };
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <label className="info">
         {' '}
         Title:
         <input
           type="text"
-          value={note.title}
-          //   onChange={(e) => setData(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </label>
       <label className="info">
@@ -26,13 +29,12 @@ export default function CloneCom() {
         Note:
         <input
           type="text"
-          value={note.note}
-          //   onChange={(e) => setNote(e.target.value)}
+          value={data}
+          onChange={(e) => setData(e.target.value)}
         />
       </label>
 
-      <button onClick={submitClone}>Add</button>
-      {/* <button onClick={remove}>Delete</button> */}
-    </div>
+      <button>Add</button>
+    </form>
   );
 }

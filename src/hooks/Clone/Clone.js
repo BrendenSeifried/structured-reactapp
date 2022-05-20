@@ -32,27 +32,31 @@ import { UserHook } from '../FetchList/Detail/NoteFetchHook';
 // import { makeNote } from '../services/FetchNotes';
 
 export default function UserAddNote() {
-  const [note] = UserHook();
+  const { note } = UserHook();
+  console.log(note.title, note.note);
 
-  const [data, setData] = useState('');
-  const [title, setTitle] = useState('');
-  const history = useHistory();
+  // const [data, setData] = useState('');
+  // const [title, setTitle] = useState('');
+  // const history = useHistory();
   const { allNotes, dispatch } = useNoteContext();
+  // const copyNote = { title, note };
+  // console.log('copynote', copyNote);
 
-  const submitClone = async () => {
+  const submitClone = async (note) => {
+    console.log('note on 46', note);
     try {
-      const info = await makeNote({ note, title });
+      const info = await makeNote(note);
       // Data(note);
-      dispatch({ type: 'CLONE', payload: data });
+      dispatch({ type: 'CLONE', payload: info });
 
       // setData(info.note);
       // setTitle(info.title);
 
       alert('Cloning complete.');
-      history.push('/');
+      // history.push('/');
     } catch (e) {
       alert('Clone vat failure.');
     }
   };
-  return { allNotes, dispatch, data, setData, submitClone, title, setTitle };
+  return { allNotes, dispatch, submitClone };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, useParams } from 'react-router-dom';
+import { Link, Route, useHistory, useParams } from 'react-router-dom';
 import Edit from '../components/Edit';
 import { useUserContext } from '../context/UserContext';
 import { UserHook } from '../hooks/FetchList/Detail/NoteFetchHook';
@@ -8,15 +8,21 @@ import CloneCom from './CloneCom/CloneCom';
 let sameId = 0;
 
 export default function NoteDetailCom() {
-  const [note, loading] = UserHook();
   const { id } = useParams();
+  const { note, loading, clone } = UserHook(id);
   const { currentUser } = useUserContext();
+  const history = useHistory();
   // const { cloneChange } = Clone();
   if (currentUser.id === note.users_id) {
     sameId = 1;
   } else {
     sameId = 0;
   }
+
+  const handleClone = async (data) => {
+    await clone(data);
+    history.push('/');
+  };
 
   if (loading) return <h1>Loading</h1>;
 
@@ -39,7 +45,7 @@ export default function NoteDetailCom() {
         </Route>
       ) : (
         <Route path={`/:id/clone`}>
-          <CloneCom note={note} id={id} />
+          <CloneCom note={note} handleClone={handleClone} />
         </Route>
       )}
     </>
