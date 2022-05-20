@@ -2,7 +2,7 @@ import React from 'react';
 import NoteEditHook from '../hooks/EditHook.js/NoteEditHook';
 
 export default function AddNote() {
-  const { note, setNote, submitChange, title, setTitle } = NoteEditHook();
+  const { note, setNote, submitChange, title, setTitle,remove } = NoteEditHook();
   console.log('note', note);
   return (
     <div>
@@ -28,6 +28,7 @@ export default function AddNote() {
       </label>
 
       <button onClick={submitChange}>Add</button>
+      <button onClick={remove}>Delete</button>
     </div>
   );
 }
