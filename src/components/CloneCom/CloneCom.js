@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useUserContext } from '../../context/UserContext';
 
 export default function CloneCom({ note, handleClone }) {
   //   const { submitClone, setTitle, setData, title } = Clone();
   const [title, setTitle] = useState(note.title);
   const [data, setData] = useState(note.note);
+  const { currentUser } = useUserContext();
 
   // const { submitNote } = UserAddNote();
   // console.log(note);
@@ -15,26 +17,29 @@ export default function CloneCom({ note, handleClone }) {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label className="info">
-        {' '}
-        Title:
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </label>
-      <label className="info">
-        {' '}
-        Note:
-        <input
-          type="text"
-          value={data}
-          onChange={(e) => setData(e.target.value)}
-        />
-      </label>
-
-      <button>Add</button>
+      {!currentUser && (
+        <>
+          <label className="info">
+            {' '}
+            Title:
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </label>
+          <label className="info">
+            {' '}
+            Note:
+            <input
+              type="text"
+              value={data}
+              onChange={(e) => setData(e.target.value)}
+            />
+          </label>
+        </>
+      )}
+      <button>Confirm</button>
     </form>
   );
 }
