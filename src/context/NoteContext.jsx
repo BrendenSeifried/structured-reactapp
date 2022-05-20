@@ -12,6 +12,8 @@ const reducer = (state, action) => {
 
     case 'EDIT':
       return action.payload;
+    case 'CLONE':
+      return action.payload;
     default:
       throw new Error(`Action type ${action.type} is not supported`);
   }

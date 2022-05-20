@@ -8,28 +8,32 @@ import Header from './components/Header';
 import Login from './views/Auth/Login';
 import { AuthProvider } from './context/AuthContext';
 import { NoteProvider } from './context/NoteContext';
+import ClonePage from './views/Auth/ClonePage';
 
 export default function App() {
   return (
     <BrowserRouter>
       <UserProvider>
         <AuthProvider>
-        <NoteProvider>
-          <Header />
-          <Switch>
-            <Route path="/auth">
-              <Login />
-            </Route>
-            <PrivateRoute path="/new">
-              <NewNotePage />
-            </PrivateRoute>
-            <PrivateRoute path="/:id">
-              <NoteDetails />
-            </PrivateRoute>
-            <Route path="/">
-              <NoteList />
-            </Route>
-          </Switch>
+          <NoteProvider>
+            <Header />
+            <Switch>
+              {/* <Route path=":id/clone">
+                <ClonePage />
+              </Route> */}
+              <Route path="/auth">
+                <Login />
+              </Route>
+              <PrivateRoute path="/new">
+                <NewNotePage />
+              </PrivateRoute>
+              <PrivateRoute path="/:id">
+                <NoteDetails />
+              </PrivateRoute>
+              <Route path="/">
+                <NoteList />
+              </Route>
+            </Switch>
           </NoteProvider>
         </AuthProvider>
       </UserProvider>

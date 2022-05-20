@@ -4,13 +4,13 @@ import { useParams } from 'react-router-dom';
 import { useNoteContext } from '../../../context/NoteContext';
 
 export function useTestFetch() {
-  const {allNotes, dispatch} = useNoteContext();
+  const { allNotes, dispatch } = useNoteContext();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const renderNotes = async () => {
       const info = await fetchNotes();
-      dispatch({type:'LIST', payload: info});
+      dispatch({ type: 'LIST', payload: info });
       // setData(info);
       setLoading(false);
     };
@@ -24,11 +24,13 @@ export function UserHook() {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState('');
+  // const [title, setTitle] = useState('');
 
   useEffect(() => {
     const grabOneNote = async () => {
       const data = await fetchOneNote(id);
       setNote(data);
+      // setTitle(data);
       setLoading(false);
     };
 

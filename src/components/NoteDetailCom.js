@@ -4,13 +4,14 @@ import Edit from '../components/Edit';
 import { useUserContext } from '../context/UserContext';
 import { UserHook } from '../hooks/FetchList/Detail/NoteFetchHook';
 import Clone from '../hooks/Clone/Clone';
+import CloneCom from './CloneCom/CloneCom';
 let sameId = 0;
 
 export default function NoteDetailCom() {
   const [note, loading] = UserHook();
   const { id } = useParams();
   const { currentUser } = useUserContext();
-  const { cloneChange } = Clone();
+  // const { cloneChange } = Clone();
   if (currentUser.id === note.users_id) {
     sameId = 1;
   } else {
@@ -26,14 +27,20 @@ export default function NoteDetailCom() {
         <h3>{note.note}</h3>
         <p>{note.created_at}</p>
 
-        {sameId === 1 ? <Link to={`/${id}/edit`}>Edit</Link> : ''}
+        {sameId === 1 ? (
+          <Link to={`/${id}/edit`}>Edit</Link>
+        ) : (
+          <Link to={`/${id}/clone`}>Clone</Link>
+        )}
       </div>
       {sameId === 1 ? (
         <Route path={`/:id/edit`}>
           <Edit id={id} />
         </Route>
       ) : (
-        <button onClick={cloneChange}>Clone</button>
+        <Route path={`/:id/clone`}>
+          <CloneCom note={note} id={id} />
+        </Route>
       )}
     </>
   );
