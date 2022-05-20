@@ -3,7 +3,7 @@ import NoteEditHook from '../hooks/EditHook.js/NoteEditHook';
 
 export default function AddNote() {
   const { note, setNote, submitChange, title, setTitle } = NoteEditHook();
-
+  console.log('note', note);
   return (
     <div>
       <label className="info">
@@ -20,7 +20,9 @@ export default function AddNote() {
         Note:
         <input
           type="text"
+         
           value={note}
+          placeholder='change note here'
           onChange={(e) => setNote(e.target.value)}
         />
       </label>

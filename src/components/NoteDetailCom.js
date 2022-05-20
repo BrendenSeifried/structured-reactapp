@@ -24,7 +24,7 @@ export default function NoteDetailCom() {
         <Link to={`/${id}/edit`}>Edit</Link>
       </div>
 
-      <Route path={`/${id}/edit`}>
+      <Route path={`/:id/edit`}>
         <Edit id={id} />
       </Route>
     </>
