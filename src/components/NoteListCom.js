@@ -8,7 +8,6 @@ export default function NoteListCom() {
 
   return (
     <>
-     
       <div>
         {note.map((item) => (
           <div key={item.id}>
