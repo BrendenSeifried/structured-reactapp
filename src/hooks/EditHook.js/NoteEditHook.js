@@ -9,14 +9,14 @@ export default function NoteEditHook() {
   const history = useHistory();
   const { id } = useParams();
 
-  useEffect(() => {
-    const grabNote = async () => {
-      const data = await fetchOneNote(id);
-      setNote(data);
-      setTitle(data);
-    };
-    grabNote();
-  }, [id]);
+  // useEffect(() => {
+  //   const grabNote = async () => {
+  //     const data = await fetchOneNote(id);
+  //     setNote(data);
+  //     setTitle(data);
+  //   };
+  //   grabNote();
+  // }, [id]);
 
   const submitChange = async () => {
     try {

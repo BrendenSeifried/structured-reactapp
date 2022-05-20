@@ -11,6 +11,7 @@ export async function fetchOneNote(id) {
     .select('*')
     .match({ id })
     .single();
+    console.log(resp);
   return checkError(resp);
 }
 

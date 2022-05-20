@@ -3,12 +3,14 @@ import { Link, Route, useParams } from 'react-router-dom';
 import Edit from '../components/Edit';
 import { useUserContext } from '../context/UserContext';
 import { UserHook } from '../hooks/FetchList/Detail/NoteFetchHook';
+import Clone from '../hooks/Clone/Clone';
 let sameId = 0;
 
 export default function NoteDetailCom() {
   const [note, loading] = UserHook();
   const { id } = useParams();
   const { currentUser } = useUserContext();
+  const { cloneChange } = Clone();
   if (currentUser.id === note.users_id) {
     sameId = 1;
   } else {
@@ -31,7 +33,7 @@ export default function NoteDetailCom() {
           <Edit id={id} />
         </Route>
       ) : (
-        <button>Clone</button>
+        <button onClick={cloneChange}>Clone</button>
       )}
     </>
   );
