@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useNoteContext } from '../context/NoteContext';
 import { makeNote } from '../services/FetchNotes';
 
 export default function UserAddNote() {
   const [note, setNote] = useState('');
   const [title, setTitle] = useState('');
   const history = useHistory();
+  const { allNotes, dispatch } = useNoteContext();
 
   const submitNote = async () => {
     try {
-      await makeNote({ note, title });
+      const data = await makeNote({ note, title });
+      dispatch({ type: 'ADD', payload: data });
 
       alert('New Note Added!');
       history.push('/');
@@ -17,6 +20,5 @@ export default function UserAddNote() {
       alert('Oh no! Something went wrong.');
     }
   };
-  return { note, setNote, submitNote, title, setTitle };
+  return { allNotes, dispatch, note, setNote, submitNote, title, setTitle };
 }
-
