@@ -14,7 +14,7 @@ useEffect(() => {
   }, [id]);
 
   const cloneChange = async (id) => {
-      console.log('id test', id)
+      
     try {
       await makeNote({ title, note });
       alert('Note Cloned!');
