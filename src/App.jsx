@@ -7,12 +7,14 @@ import { PrivateRoute } from './components/PrivateRoute.jsx/PrivateRoute';
 import Header from './components/Header';
 import Login from './views/Auth/Login';
 import { AuthProvider } from './context/AuthContext';
+import { NoteProvider } from './context/NoteContext';
 
 export default function App() {
   return (
     <BrowserRouter>
       <UserProvider>
         <AuthProvider>
+        <NoteProvider>
           <Header />
           <Switch>
             <Route path="/auth">
@@ -28,6 +30,7 @@ export default function App() {
               <NoteList />
             </Route>
           </Switch>
+          </NoteProvider>
         </AuthProvider>
       </UserProvider>
     </BrowserRouter>

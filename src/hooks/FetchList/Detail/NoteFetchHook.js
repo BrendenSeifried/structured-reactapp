@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react';
 import { fetchNotes, fetchOneNote } from '../../../services/FetchNotes';
 import { useParams } from 'react-router-dom';
+import { useNoteContext } from '../../../context/NoteContext';
 
 export function useTestFetch() {
-  const [data, setData] = useState([]);
+  const {allNotes, dispatch} = useNoteContext();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const renderNotes = async () => {
       const info = await fetchNotes();
-      setData(info);
+      dispatch({type:'LIST', payload: info});
+      // setData(info);
       setLoading(false);
     };
     renderNotes();
   }, []);
 
-  return [data, loading];
+  return [allNotes, loading, dispatch];
 }
 
 export function UserHook() {
