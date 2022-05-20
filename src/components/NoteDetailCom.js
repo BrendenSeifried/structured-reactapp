@@ -33,7 +33,7 @@ export default function NoteDetailCom() {
           <Edit id={id} />
         </Route>
       ) : (
-        <button onClick={cloneChange(id)}>Clone</button>
+        <button onClick={cloneChange}>Clone</button>
       )}
     </>
   );
