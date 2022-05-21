@@ -34,9 +34,9 @@ export default function NoteDetailCom() {
         <p>{note.created_at}</p>
 
         {sameId === 1 ? (
-          <Link to={`/${id}/edit`}>Edit</Link>
+          <Link to={`/${id}/edit`}><button>Edit</button></Link>
         ) : (
-          <Link to={`/${id}/clone`}>Clone</Link>
+          <Link to={`/${id}/clone`}><button>Clone</button></Link>
         )}
       </div>
       {sameId === 1 ? (
