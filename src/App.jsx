@@ -18,9 +18,9 @@ export default function App() {
           <NoteProvider>
             <Header />
             <Switch>
-              {/* <Route path=":id/clone">
+              <Route path=":id/clone">
                 <ClonePage />
-              </Route> */}
+              </Route>
               <Route path="/auth">
                 <Login />
               </Route>
