@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 export const client = createClient(
-  process.env.REACT_APP_SUPABASE_API_URL,
-  process.env.REACT_APP_SUPABASE_API_KEY
+  process.env.SUPABASE_API_URL,
+  process.env.SUPABASE_API_KEY
 );
 
 export const checkError = ({ data, error }) => {
@@ -9,3 +9,4 @@ export const checkError = ({ data, error }) => {
 
   return data;
 };
+
