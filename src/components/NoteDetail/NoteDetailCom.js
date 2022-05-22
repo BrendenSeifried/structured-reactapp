@@ -2,12 +2,12 @@ import React from 'react';
 import { Link, Route, useHistory, useParams } from 'react-router-dom';
 import Edit from '../Edit/Edit';
 import { useUserContext } from '../../context/UserContext';
-import { UserHook } from '../../hooks/FetchList/Detail/NoteFetchHook';
+import { fetchNoteById } from '../../hooks/FetchList/Detail/NoteFetchHook';
 import CloneCom from '../cloneCom/cloneCom';
 
 export default function noteDetailCom() {
   const { id } = useParams();
-  const { note, loading, clone } = UserHook(id);
+  const { note, loading, clone } = fetchNoteById(id);
   const { currentUser } = useUserContext();
   const history = useHistory();
 

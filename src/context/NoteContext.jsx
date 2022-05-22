@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useState } from 'react';
-import { useTestFetch } from '../hooks/FetchList/Detail/NoteFetchHook';
+import { fetchAllNotes } from '../hooks/FetchList/Detail/NoteFetchHook';
 // import { getUser } from '../services/fetchauth';
 // import { getUser } from '../services/fetch';
 

@@ -7,7 +7,7 @@ import {
 import { useParams } from 'react-router-dom';
 import { useNoteContext } from '../../../context/NoteContext';
 
-export function useTestFetch() {
+export function fetchAllNotes() {
   const { allNotes, dispatch } = useNoteContext();
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ export function useTestFetch() {
   return [allNotes, loading, dispatch];
 }
 
-export function UserHook(id) {
+export function fetchNoteById(id) {
   // const { id } = useParams();
   const { allNotes, dispatch } = useNoteContext();
 
@@ -50,4 +50,4 @@ export function UserHook(id) {
   return { note, loading, clone };
 }
 
-// export default { useTestFetch, UserHook };
+// export default { fetchAllNotes, fetchNoteById };
