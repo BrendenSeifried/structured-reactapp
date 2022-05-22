@@ -1,16 +1,16 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import NoteEditHook from '../hooks/EditHook.js/NoteEditHook';
+import NoteEditHook from '../../hooks/EditHook.js/NoteEditHook';
 
-export default function EditNote() {
+export default function editNote() {
   const { note, setNote, submitChange, title, setTitle, remove } =
     NoteEditHook();
 
-    const history = useHistory();
-    const handleRemove = async () =>{
-      await remove();
-      history.push('/');
-    }
+  const history = useHistory();
+  const handleRemove = async () => {
+    await remove();
+    history.push('/');
+  };
   return (
     <div>
       <label className="info">

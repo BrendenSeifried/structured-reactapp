@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NoteDetails from './views/NoteDetails';
 import NoteList from './views/NoteList';
-import NewNotePage from './views/NewNotePage';
 import { UserProvider } from './context/UserContext';
 import { PrivateRoute } from './components/PrivateRoute.jsx/PrivateRoute';
 import Header from './components/Header';
@@ -9,6 +8,7 @@ import Login from './views/Auth/Login';
 import { AuthProvider } from './context/AuthContext';
 import { NoteProvider } from './context/NoteContext';
 import ClonePage from './views/Auth/ClonePage';
+import NewNotePage from './views/NewNotePage';
 
 export default function App() {
   return (
