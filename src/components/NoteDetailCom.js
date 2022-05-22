@@ -13,11 +13,11 @@ export default function NoteDetailCom() {
   const { currentUser } = useUserContext();
   const history = useHistory();
   // const { cloneChange } = Clone();
-  if (currentUser.id === note.users_id) {
-    sameId = 1;
-  } else {
-    sameId = 0;
-  }
+  // if (currentUser.id === note.users_id) {
+  //   sameId = 1;
+  // } else {
+  //   sameId = 0;
+  // }
 
   const handleClone = async (data) => {
     await clone(data);
@@ -33,13 +33,13 @@ export default function NoteDetailCom() {
         <h3>{note.note}</h3>
         <p>{note.created_at}</p>
 
-        {sameId === 1 ? (
+        {currentUser.id === note.users_id ?(
           <Link to={`/${id}/edit`}><button>Edit</button></Link>
         ) : (
           <Link to={`/${id}/clone`}><button>Clone</button></Link>
         )}
       </div>
-      {sameId === 1 ? (
+      {currentUser.id === note.users_id ?(
         <Route path={`/:id/edit`}>
           <Edit id={id} />
         </Route>
