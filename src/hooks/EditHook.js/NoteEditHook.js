@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useNoteContext } from '../../context/NoteContext';
 import { deleteNote, editNote } from '../../services/FetchNotes';
 
-export default function NoteEditHook() {
+export default function noteEdit() {
   const [note, setNote] = useState('');
   const [title, setTitle] = useState('');
   const { id } = useParams();

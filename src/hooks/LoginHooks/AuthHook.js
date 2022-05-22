@@ -4,7 +4,7 @@ import { useUserContext } from '../../context/UserContext';
 // import { useAuth } from '../../hooks/LoginHooks/useAuth';
 import { signInUser, signUpUser } from '../../services/fetchauth';
 
-export default function AuthHook() {
+export default function authFunction() {
   const history = useHistory();
   const { setCurrentUser } = useUserContext();
   const {
