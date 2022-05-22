@@ -5,7 +5,7 @@ import { useUserContext } from '../../context/UserContext';
 import { UserHook } from '../../hooks/FetchList/Detail/NoteFetchHook';
 import cloneCom from '../cloneCom/cloneCom';
 
-export default function NoteDetailCom() {
+export default function noteDetailCom() {
   const { id } = useParams();
   const { note, loading, clone } = UserHook(id);
   const { currentUser } = useUserContext();

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTestFetch } from '../../hooks/FetchList/Detail/NoteFetchHook';
 
-export default function NoteListCom() {
+export default function noteListCom() {
   const [note, loading] = useTestFetch();
 
   if (loading) return <h1>Loading</h1>;
