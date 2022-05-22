@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useUserContext } from '../context/UserContext';
-import { signOutUser } from '../services/fetchauth';
+import { useUserContext } from '../../context/UserContext';
+import { signOutUser } from '../../services/fetchauth';
 
 export default function Header() {
   const { currentUser } = useUserContext();
@@ -19,13 +19,13 @@ export default function Header() {
         </div>
       )}
       <div>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
+        <Link to="/">
+          <button>Home</button>
+        </Link>
         <Link to="/new">
-        <button>Create Note</button>
-      </Link>
-        </div>
+          <button>Create Note</button>
+        </Link>
+      </div>
     </>
   );
 }
