@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useNoteContext } from '../context/NoteContext';
-import { makeNote } from '../services/FetchNotes';
+import { useNoteContext } from '../../context/NoteContext';
+import { makeNote } from '../../services/FetchNotes';
 
-export default function UserAddNote() {
+export default function userAddNote() {
   const [note, setNote] = useState('');
   const [title, setTitle] = useState('');
   const history = useHistory();
