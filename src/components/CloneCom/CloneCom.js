@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useUserContext } from '../../context/UserContext';
 
-export default function cloneCom({ note, handleClone }) {
+export default function CloneCom({ note, handleClone }) {
   //   const { submitClone, setTitle, setData, title } = Clone();
   const [title, setTitle] = useState(note.title);
   const [data, setData] = useState(note.note);

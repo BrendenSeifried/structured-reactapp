@@ -3,7 +3,7 @@ import { Link, Route, useHistory, useParams } from 'react-router-dom';
 import Edit from '../Edit/Edit';
 import { useUserContext } from '../../context/UserContext';
 import { UserHook } from '../../hooks/FetchList/Detail/NoteFetchHook';
-import cloneCom from '../cloneCom/cloneCom';
+import CloneCom from '../cloneCom/cloneCom';
 
 export default function noteDetailCom() {
   const { id } = useParams();
@@ -42,7 +42,7 @@ export default function noteDetailCom() {
         </Route>
       ) : (
         <Route path={`/:id/clone`}>
-          <cloneCom note={note} handleClone={handleClone} />
+          <CloneCom note={note} handleClone={handleClone} />
         </Route>
       )}
     </>
