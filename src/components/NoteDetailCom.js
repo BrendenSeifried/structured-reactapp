@@ -5,19 +5,14 @@ import { useUserContext } from '../context/UserContext';
 import { UserHook } from '../hooks/FetchList/Detail/NoteFetchHook';
 import Clone from '../hooks/Clone/Clone';
 import CloneCom from './CloneCom/CloneCom';
-let sameId = 0;
+
 
 export default function NoteDetailCom() {
   const { id } = useParams();
   const { note, loading, clone } = UserHook(id);
   const { currentUser } = useUserContext();
   const history = useHistory();
-  // const { cloneChange } = Clone();
-  // if (currentUser.id === note.users_id) {
-  //   sameId = 1;
-  // } else {
-  //   sameId = 0;
-  // }
+  
 
   const handleClone = async (data) => {
     await clone(data);

@@ -1,10 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import NoteEditHook from '../hooks/EditHook.js/NoteEditHook';
 
 export default function EditNote() {
   const { note, setNote, submitChange, title, setTitle, remove } =
     NoteEditHook();
 
+    const history = useHistory();
+    const handleRemove = async () =>{
+      await remove();
+      history.push('/');
+    }
   return (
     <div>
       <label className="info">
@@ -27,7 +33,7 @@ export default function EditNote() {
       </label>
 
       <button onClick={submitChange}>Add</button>
-      <button onClick={remove}>Delete</button>
+      <button onClick={handleRemove}>Delete</button>
     </div>
   );
 }

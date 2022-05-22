@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useNoteContext } from '../../context/NoteContext';
 import { deleteNote, editNote } from '../../services/FetchNotes';
 
 export default function NoteEditHook() {
   const [note, setNote] = useState('');
   const [title, setTitle] = useState('');
-  const history = useHistory();
   const { id } = useParams();
   const { allNotes, dispatch } = useNoteContext();
 
@@ -23,7 +22,7 @@ export default function NoteEditHook() {
 
   const remove = async () => {
     await deleteNote(id);
-    history.push(`/`);
+  
   };
 
   return {
