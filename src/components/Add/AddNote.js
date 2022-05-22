@@ -1,7 +1,7 @@
 import React from 'react';
-import userAddNote from '../hooks/AddNote/UserAddNote';
+import userAddNote from '../../hooks/AddNote/UserAddNote';
 
-export default function AddNote() {
+export default function addNote() {
   const { note, setNote, submitNote, title, setTitle } = userAddNote();
 
   return (
