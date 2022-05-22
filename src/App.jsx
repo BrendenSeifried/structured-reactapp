@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import NoteDetails from './views/NoteDetails';
-import NoteList from './views/NoteList';
+import NoteList from './views/ListView/NoteList';
 import { UserProvider } from './context/UserContext';
 import { PrivateRoute } from './components/PrivateRoute.jsx/PrivateRoute';
 import Login from './views/Auth/Login';
 import { AuthProvider } from './context/AuthContext';
 import { NoteProvider } from './context/NoteContext';
-import ClonePage from './views/Auth/ClonePage';
-import NewNotePage from './views/NewNotePage';
+import ClonePage from './views/ClonePage/ClonePage';
+import NewNotePage from './views/AddPage/NewNotePage';
 import Header from './components/Header/Header';
+import NoteDetails from './views/DetailView/NoteDetails';
 
 export default function App() {
   return (

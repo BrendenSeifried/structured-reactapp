@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import NoteListCom from '../components/NoteList/NoteListCom';
-import { useUserContext } from '../context/UserContext';
+import NoteListCom from '../../components/NoteList/NoteListCom';
+import { useUserContext } from '../../context/UserContext';
 
 export default function ShowNotes() {
   const { currentUser } = useUserContext();

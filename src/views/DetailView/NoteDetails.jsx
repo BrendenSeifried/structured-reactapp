@@ -1,4 +1,4 @@
-import NoteDetailCom from '../components/NoteDetail/NoteDetailCom';
+import NoteDetailCom from '../../components/NoteDetail/NoteDetailCom';
 
 export default function NoteDetails() {
   return (
