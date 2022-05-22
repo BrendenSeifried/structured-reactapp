@@ -29,6 +29,7 @@ export default function NoteDetailCom() {
   return (
     <>
       <div>
+         <p>Note Creator ID:{note.users_id}</p>      
         <h1>{note.title}</h1>
         <h3>{note.note}</h3>
         <p>{note.created_at}</p>
