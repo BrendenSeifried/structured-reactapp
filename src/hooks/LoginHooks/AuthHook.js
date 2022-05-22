@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
 import { useUserContext } from '../../context/UserContext';
@@ -6,7 +5,7 @@ import { useUserContext } from '../../context/UserContext';
 import { signInUser, signUpUser } from '../../services/fetchauth';
 
 export default function AuthHook() {
- const history = useHistory();
+  const history = useHistory();
   const { setCurrentUser } = useUserContext();
   const {
     email,
