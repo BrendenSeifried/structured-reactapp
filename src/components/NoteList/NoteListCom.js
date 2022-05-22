@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useTestFetch } from '../hooks/FetchList/Detail/NoteFetchHook';
+import { useTestFetch } from '../../hooks/FetchList/Detail/NoteFetchHook';
 
 export default function NoteListCom() {
   const [note, loading] = useTestFetch();

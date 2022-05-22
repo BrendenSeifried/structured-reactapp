@@ -1,5 +1,5 @@
-import NoteListCom from '../components/NoteListCom';
 import { Link } from 'react-router-dom';
+import NoteListCom from '../components/NoteList/NoteListCom';
 import { useUserContext } from '../context/UserContext';
 
 export default function ShowNotes() {

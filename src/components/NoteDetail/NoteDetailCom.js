@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, Route, useHistory, useParams } from 'react-router-dom';
-import Edit from '../components/Edit/Edit';
-import { useUserContext } from '../context/UserContext';
-import { UserHook } from '../hooks/FetchList/Detail/NoteFetchHook';
-import CloneCom from './CloneCom/CloneCom';
+import Edit from '../Edit/Edit';
+import { useUserContext } from '../../context/UserContext';
+import { UserHook } from '../../hooks/FetchList/Detail/NoteFetchHook';
+import CloneCom from '../CloneCom/CloneCom';
 
 export default function NoteDetailCom() {
   const { id } = useParams();
