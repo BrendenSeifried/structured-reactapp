@@ -1,10 +1,10 @@
 import React from 'react';
-import CloneCom from '../../components/CloneCom/CloneCom';
+import cloneCom from '../../components/cloneCom/cloneCom';
 
 export default function ClonePage() {
   return (
     <div>
-      <CloneCom />
+      <cloneCom />
     </div>
   );
 }

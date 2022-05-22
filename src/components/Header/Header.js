@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import { signOutUser } from '../../services/fetchauth';
 
-export default function Header() {
+export default function header() {
   const { currentUser } = useUserContext();
 
   const out = async () => {
