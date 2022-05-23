@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { fetchAllNotes } from '../../hooks/FetchList/Detail/NoteFetchHook';
+import styles from './NoteListCom.css';
 
 export default function noteListCom() {
   const [note, loading] = fetchAllNotes();
@@ -8,7 +9,7 @@ export default function noteListCom() {
 
   return (
     <>
-      <div>
+      <div className={styles.background}>
         {note.map((item) => (
           <div key={item.id}>
             <Link to={`/${item.id}`}>

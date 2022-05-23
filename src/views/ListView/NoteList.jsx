@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import NoteListCom from '../../components/NoteList/NoteListCom';
 import { useUserContext } from '../../context/UserContext';
+import styles from './NoteList.css';
 
 export default function ShowNotes() {
   const { currentUser } = useUserContext();
@@ -8,7 +9,7 @@ export default function ShowNotes() {
   return (
     <>
       {!currentUser.email && (
-        <div>
+        <div className={styles.banner}>
           <h1>
             Please{' '}
             <span>
