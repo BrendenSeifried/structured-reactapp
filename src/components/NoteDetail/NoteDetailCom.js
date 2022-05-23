@@ -3,7 +3,7 @@ import { Link, Route, useHistory, useParams } from 'react-router-dom';
 import Edit from '../Edit/Edit';
 import { useUserContext } from '../../context/UserContext';
 import { fetchNoteById } from '../../hooks/FetchList/Detail/NoteFetchHook';
-import CloneCom from '../cloneCom/cloneCom';
+import CloneCom from '../CloneCom/CloneCom';
 
 export default function noteDetailCom() {
   const { id } = useParams();
