@@ -9,13 +9,14 @@ import ClonePage from './views/ClonePage/ClonePage';
 import NewNotePage from './views/AddPage/NewNotePage';
 import Header from './components/Header/Header';
 import NoteDetails from './views/DetailView/NoteDetails';
-
+import styles from './App.css';
 export default function App() {
   return (
+    <div className={styles.background}>
     <BrowserRouter>
       <UserProvider>
         <AuthProvider>
-          <NoteProvider>
+          <NoteProvider >
             <Header />
             <Switch>
               <Route path=":id/clone">
@@ -38,5 +39,6 @@ export default function App() {
         </AuthProvider>
       </UserProvider>
     </BrowserRouter>
+    </div>
   );
 }

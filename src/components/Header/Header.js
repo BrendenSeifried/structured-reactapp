@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../../context/UserContext';
 import { signOutUser } from '../../services/fetchauth';
-
+import styles from './Header.css';
 export default function header() {
   const { currentUser } = useUserContext();
 
@@ -11,7 +11,7 @@ export default function header() {
   };
 
   return (
-    <>
+    <div className={styles.header}>
       {currentUser.email && (
         <div>
           <button onClick={out}>Sign Out</button>
@@ -26,6 +26,6 @@ export default function header() {
           <button>Create Note</button>
         </Link>
       </div>
-    </>
+    </div>
   );
 }

@@ -19,7 +19,7 @@ export default function ShowNotes() {
           </h1>
         </div>
       )}
-      <h1>The big list of notes</h1>
+      <h1 className={styles.banner}>The big list of notes</h1>
       <NoteListCom />
     </>
   );
