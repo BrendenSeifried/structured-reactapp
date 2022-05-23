@@ -15,7 +15,7 @@ export default function header() {
       {currentUser.email && (
         <div>
           <button onClick={out}>Sign Out</button>
-          <h1>Welcome: ({currentUser.email})</h1>
+          <h1 className={styles.welcome}>Welcome: ({currentUser.email})</h1>
         </div>
       )}
       <div>
