@@ -1,0 +1,19 @@
+.header {
+  margin: auto;
+  /* width: 50%; */
+  /* border: 3px solid white; */
+  padding: 10px;
+  float: right;
+  text-align: center;
+
+  background-color: rgb(146, 136, 136);
+}
+.welcome {
+  margin: auto;
+  /* width: 50%; */
+  /* border: 3px solid white; */
+  padding: 10px;
+  text-align: center;
+  text-decoration: underline;
+  float: right;
+}
