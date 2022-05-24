@@ -24,9 +24,12 @@ export const NoteContext = createContext();
 const NoteProvider = ({ children }) => {
   const [allNotes, dispatch] = useReducer(reducer);
   const [data, setData] = useState([]);
+  const [title, setTitle] = useState([]);
 
   return (
-    <NoteContext.Provider value={{ allNotes, dispatch, data, setData }}>
+    <NoteContext.Provider
+      value={{ allNotes, dispatch, data, setData, title, setTitle }}
+    >
       {children}
     </NoteContext.Provider>
   );

@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { useNoteContext } from '../../context/NoteContext';
 import { useUserContext } from '../../context/UserContext';
 
 export default function CloneCom({ note, handleClone }) {
   //   const { submitClone, setTitle, setData, title } = Clone();
   const [title, setTitle] = useState(note.title);
-  const [data, setData] = useState(note.note);
+  const { data, setData } = useNoteContext();
+  setData(note.data);
+  // setTitle(note.title);
+
   const { currentUser } = useUserContext();
 
   // const { submitNote } = UserAddNote();

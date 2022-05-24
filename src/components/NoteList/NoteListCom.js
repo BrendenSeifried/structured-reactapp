@@ -11,8 +11,8 @@ export default function noteListCom() {
     <>
       <div className={styles.background}>
         {note.map((item) => (
-          <div key={item.id} >
-            <Link to={`/${item.id}`}className={styles.text}>
+          <div key={item.id}>
+            <Link to={`/${item.id}`} className={styles.text}>
               <h1 className={styles.text}>Author: {item.title}</h1>
             </Link>
           </div>
