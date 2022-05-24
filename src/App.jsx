@@ -13,32 +13,32 @@ import styles from './App.css';
 export default function App() {
   return (
     <div className={styles.background}>
-    <BrowserRouter>
-      <UserProvider>
-        <AuthProvider>
-          <NoteProvider >
-            <Header />
-            <Switch>
-              <Route path=":id/clone">
-                <ClonePage />
-              </Route>
-              <Route path="/auth">
-                <Login />
-              </Route>
-              <PrivateRoute path="/new">
-                <NewNotePage />
-              </PrivateRoute>
-              <PrivateRoute path="/:id">
-                <NoteDetails />
-              </PrivateRoute>
-              <Route path="/">
-                <NoteList />
-              </Route>
-            </Switch>
-          </NoteProvider>
-        </AuthProvider>
-      </UserProvider>
-    </BrowserRouter>
+      <BrowserRouter>
+        <UserProvider>
+          <AuthProvider>
+            <NoteProvider>
+              <Header />
+              <Switch>
+                <Route path=":id/clone">
+                  <ClonePage />
+                </Route>
+                <Route path="/auth">
+                  <Login />
+                </Route>
+                <PrivateRoute path="/new">
+                  <NewNotePage />
+                </PrivateRoute>
+                <PrivateRoute path="/:id">
+                  <NoteDetails />
+                </PrivateRoute>
+                <PrivateRoute path="/">
+                  <NoteList />
+                </PrivateRoute>
+              </Switch>
+            </NoteProvider>
+          </AuthProvider>
+        </UserProvider>
+      </BrowserRouter>
     </div>
   );
 }
