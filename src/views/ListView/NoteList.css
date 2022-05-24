@@ -1,0 +1,9 @@
+.banner {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  text-decoration: underline;
+
+  background-color: rgb(146, 136, 136);
+}
