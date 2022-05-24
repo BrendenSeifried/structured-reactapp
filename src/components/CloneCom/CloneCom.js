@@ -4,8 +4,9 @@ import { useUserContext } from '../../context/UserContext';
 
 export default function CloneCom({ note, handleClone }) {
   //   const { submitClone, setTitle, setData, title } = Clone();
-  const [title, setTitle] = useState(note.title);
-  const { data, setData } = useNoteContext();
+  // const [title, setTitle] = useState(note.title);
+  const { data, setData, title, setTitle} = useNoteContext();
+  
   if (!note) return null;
   //guard statement
   setData(note.data);
