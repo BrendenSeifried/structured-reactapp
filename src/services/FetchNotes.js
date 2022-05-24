@@ -11,7 +11,6 @@ export async function fetchOneNote(id) {
     .select('*')
     .match({ id })
     .single();
-  console.log(resp);
   return checkError(resp);
 }
 
@@ -21,7 +20,6 @@ export async function makeNote(note) {
 }
 
 export async function editNote(change) {
-  console.log(change);
   const resp = await client
     .from('Reminders')
     .update(change)

@@ -3,11 +3,9 @@ import { useNoteContext } from '../../context/NoteContext';
 import { useUserContext } from '../../context/UserContext';
 
 export default function CloneCom({ note, handleClone }) {
-  const { data, setData, title, setTitle } = useNoteContext();
-
   if (!note) return null;
-  setData(note.data);
-  setTitle(note.title);
+  const [data, setData] = useState(note.data);
+  const [title, setTitle] = useState(note.title);
 
   const { currentUser } = useUserContext();
 
