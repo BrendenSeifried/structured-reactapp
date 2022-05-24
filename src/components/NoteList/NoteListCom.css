@@ -1,8 +1,8 @@
 .background {
   background-image: url('../../assets/chalkboard.jpg');
-  /* border: double brown; */
   border: 4mm ridge rgba(124, 115, 75, 0.603);
 }
+
 .text {
   color: white;
   font-family: cursive;

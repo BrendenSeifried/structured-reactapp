@@ -4,7 +4,6 @@ import {
   fetchOneNote,
   makeNote,
 } from '../../../services/FetchNotes';
-import { useParams } from 'react-router-dom';
 import { useNoteContext } from '../../../context/NoteContext';
 
 export function fetchAllNotes() {
@@ -15,7 +14,6 @@ export function fetchAllNotes() {
     const renderNotes = async () => {
       const info = await fetchNotes();
       dispatch({ type: 'LIST', payload: info });
-      // setData(info);
       setLoading(false);
     };
     renderNotes();
@@ -25,18 +23,15 @@ export function fetchAllNotes() {
 }
 
 export function fetchNoteById(id) {
-  // const { id } = useParams();
-  const { allNotes, dispatch } = useNoteContext();
+  const { dispatch } = useNoteContext();
 
   const [loading, setLoading] = useState(true);
   const [note, setNote] = useState('');
-  // const [title, setTitle] = useState('');
 
   useEffect(() => {
     const grabOneNote = async () => {
       const data = await fetchOneNote(id);
       setNote(data);
-      // setTitle(data);
       setLoading(false);
     };
 
@@ -49,5 +44,3 @@ export function fetchNoteById(id) {
 
   return { note, loading, clone };
 }
-
-// export default { fetchAllNotes, fetchNoteById };

@@ -1,7 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
 import { useUserContext } from '../../context/UserContext';
-// import { useAuth } from '../../hooks/LoginHooks/useAuth';
 import { signInUser, signUpUser } from '../../services/fetchauth';
 
 export default function authFunction() {

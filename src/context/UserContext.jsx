@@ -1,6 +1,5 @@
 import { createContext, useContext, useState } from 'react';
 import { getUser } from '../services/fetchauth';
-// import { getUser } from '../services/fetch';
 
 export const UserContext = createContext();
 

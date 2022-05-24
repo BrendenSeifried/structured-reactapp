@@ -1,7 +1,4 @@
 import { createContext, useContext, useReducer, useState } from 'react';
-import { fetchAllNotes } from '../hooks/FetchList/Detail/NoteFetchHook';
-// import { getUser } from '../services/fetchauth';
-// import { getUser } from '../services/fetch';
 
 const reducer = (state, action) => {
   switch (action.type) {

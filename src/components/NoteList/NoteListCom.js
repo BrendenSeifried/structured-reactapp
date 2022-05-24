@@ -4,7 +4,6 @@ import styles from './NoteListCom.css';
 
 export default function noteListCom() {
   const { allNotes, loading } = fetchAllNotes();
-
   if (loading) return <h1>Loading</h1>;
 
   return (

@@ -3,23 +3,16 @@ import { useNoteContext } from '../../context/NoteContext';
 import { useUserContext } from '../../context/UserContext';
 
 export default function CloneCom({ note, handleClone }) {
-  //   const { submitClone, setTitle, setData, title } = Clone();
-  // const [title, setTitle] = useState(note.title);
-  const { data, setData, title, setTitle} = useNoteContext();
-  
+  const { data, setData, title, setTitle } = useNoteContext();
+
   if (!note) return null;
-  //guard statement
   setData(note.data);
-  // setTitle(note.title);
+  setTitle(note.title);
 
   const { currentUser } = useUserContext();
 
-  // const { submitNote } = UserAddNote();
-  // console.log(note);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // await submitClone(note);
-    // history.push('/');
     handleClone({ title, note: data });
   };
   return (
