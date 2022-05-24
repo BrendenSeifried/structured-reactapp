@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNoteContext } from '../../context/NoteContext';
 import { useUserContext } from '../../context/UserContext';
 
 export default function CloneCom({ note, handleClone }) {
