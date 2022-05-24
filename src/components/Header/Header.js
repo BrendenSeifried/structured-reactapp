@@ -12,15 +12,17 @@ export default function header() {
 
   return (
     <div>
-      <div className={styles.header}>
-        <Link to="/">
-          <button>Home</button>
-        </Link>
-        <Link to="/new">
-          <button>Create Note</button>
-        </Link>
-        {currentUser.email && <button onClick={out}>Sign Out</button>}
-      </div>
+      {currentUser.email && (
+        <div className={styles.header}>
+          <Link to="/">
+            <button>Home</button>
+          </Link>
+          <Link to="/new">
+            <button>Create Note</button>
+          </Link>
+          <button onClick={out}>Sign Out</button>
+        </div>
+      )}
       {currentUser.email && (
         <div>
           <h1 className={styles.welcome}>Welcome: ({currentUser.email})</h1>
