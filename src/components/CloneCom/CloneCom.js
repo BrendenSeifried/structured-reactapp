@@ -6,6 +6,8 @@ export default function CloneCom({ note, handleClone }) {
   //   const { submitClone, setTitle, setData, title } = Clone();
   const [title, setTitle] = useState(note.title);
   const { data, setData } = useNoteContext();
+  if (!note) return null;
+  //guard statement
   setData(note.data);
   // setTitle(note.title);
 

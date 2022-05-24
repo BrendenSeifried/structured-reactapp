@@ -21,7 +21,7 @@ export function fetchAllNotes() {
     renderNotes();
   }, []);
 
-  return [allNotes, loading, dispatch];
+  return { allNotes, loading, dispatch };
 }
 
 export function fetchNoteById(id) {
