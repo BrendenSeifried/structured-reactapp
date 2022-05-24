@@ -1,0 +1,15 @@
+.header {
+  margin: auto;
+  padding: 10px;
+  float: right;
+  text-align: center;
+  background-color: rgb(146, 136, 136);
+}
+
+.welcome {
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  text-decoration: underline;
+  float: right;
+}
